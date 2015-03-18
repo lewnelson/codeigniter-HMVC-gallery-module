@@ -1,0 +1,12 @@
+Options +FollowSymLinks
+Options -Indexes
+DirectoryIndex index.php
+
+RewriteEngine on
+
+RewriteCond $1 !^(index\.php|assets|robots\.txt)
+RewriteRule ^(.*)$ /gallery_module/index.php/$1 [L]
+
+SetEnvIfNoCase User-Agent "^libwww-perl*" block_bad_bots
+Deny from env=block_bad_bots
+
